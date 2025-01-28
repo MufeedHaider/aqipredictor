@@ -1,9 +1,6 @@
 name: Scheduling
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: "0 * * * *"  # Runs every hour for feature script
     - cron: "0 0 * * *"  # Runs daily for training script
