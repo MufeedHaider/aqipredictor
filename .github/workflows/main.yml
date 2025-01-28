@@ -2,7 +2,7 @@ name: Scheduling
 
 on:
   schedule:
-    - cron: "0 * * * *"  # Runs every hour for feature script
+    - cron: "*/5 * * * *"  # Runs every hour for feature script
     - cron: "0 0 * * *"  # Runs daily for training script
 
 
