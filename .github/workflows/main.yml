@@ -1,0 +1,54 @@
+name: Scheduling
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Runs every hour for feature script
+    - cron: "0 0 * * *"  # Runs daily for training script
+
+jobs:
+  run-feature-script:
+    name: Run Feature Script
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -U 'hopsworks[python]' --quiet
+
+      - name: Run Feature Script
+        env:
+          OW_API_KEY: ${{05f1a56c472a46f3fb42f0a3775cc7e7}}
+          HW_API_KEY: ${{EP5aAsjdPutNPjHf.qXzpVQ2wrS8dHURwxxJMggYsRgWHpy42SN2CqvSB5xdHGOdqZoezwioQU9tqj4Cc}}
+        run: python featurespt.py  
+
+  run-training-script:
+    name: Run Train Script
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -U 'hopsworks[python]' --quiet
+
+      - name: Run Train Script
+        env:
+          HW_API_KEY: ${{EP5aAsjdPutNPjHf.qXzpVQ2wrS8dHURwxxJMggYsRgWHpy42SN2CqvSB5xdHGOdqZoezwioQU9tqj4Cc}}
+        run: python trainspt.py
+
+
