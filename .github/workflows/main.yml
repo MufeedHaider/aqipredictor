@@ -27,9 +27,6 @@ jobs:
           pip install -U 'hopsworks[python]' --quiet
 
       - name: Run Feature Script
-        env:
-          OW_API_KEY: ${{05f1a56c472a46f3fb42f0a3775cc7e7}}
-          HW_API_KEY: ${{EP5aAsjdPutNPjHf.qXzpVQ2wrS8dHURwxxJMggYsRgWHpy42SN2CqvSB5xdHGOdqZoezwioQU9tqj4Cc}}
         run: python featurespt.py  
 
   run-training-script:
@@ -50,8 +47,6 @@ jobs:
           pip install -U 'hopsworks[python]' --quiet
 
       - name: Run Train Script
-        env:
-          HW_API_KEY: ${{EP5aAsjdPutNPjHf.qXzpVQ2wrS8dHURwxxJMggYsRgWHpy42SN2CqvSB5xdHGOdqZoezwioQU9tqj4Cc}}
         run: python trainspt.py
 
 
