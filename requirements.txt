@@ -1,7 +1,6 @@
 numpy>=1.21.0
 scikit-learn>=1.6.0
-hopsworks>=3.7.0
-hopsworks-aiomysql>=0.2.1
+hopsworks==3.2.0rc0
 pandas>=2.1.4
 pandas-datareader>=0.10.0
 pandas-gbq>=0.26.1
