@@ -1,6 +1,9 @@
 name: Scheduling
 
 on:
+  push:  # Runs immediately after a push to the main branch
+    branches:
+        - main
   schedule:
     - cron: "0 * * * *"  # Runs every hour for feature script
     - cron: "0 0 * * *"  # Runs daily for training script
